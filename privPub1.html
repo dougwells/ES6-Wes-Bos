@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ES6 - Pub/Priv</title>
+</head>
+<body>
+<script>
+
+//create Constructor
+//this.xx --> pulic
+// let, var const = private
+
+function Team (member){
+  let secretAndPrivate = 3;
+  this.name = member;
+
+  //public fn (note, starts w/"this")
+  this.mbike = function(bike){
+    return this.name + " rides a " + bike;
+  };
+
+  //"priviledged fn - can access private var"
+  this.bikeQuest = function(){
+    console.log(secretAndPrivate);
+    return limit() ? this.name : "Not Auth"
+  };
+
+//private fn.  Can only access internally
+  function limit (){
+    if(secretAndPrivate>0){
+      secretAndPrivate -=1;
+      return true;
+    }else{
+      return false;
+    }
+  }
+}
+
+//using prototype conserves memory
+//otherwise every instance has unique copy
+// of function bike
+Team.prototype.bike = function(bike){
+  return this.name + " rides a " + bike;
+}
+
+var bTeam = new Team ('Ted');
+console.dir(bTeam)
+
+
+</script>
+</body>
+</html>

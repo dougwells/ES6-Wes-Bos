@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ES6 - Pub/Priv</title>
+</head>
+<body>
+<script>
+
+//create Constructor
+//this.xx --> pulic
+// let, var const = private
+
+function Container(param) {
+    var secret = 3;
+    function dec() {
+        if (secret > 0) {
+            secret -= 1;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    this.member = param;
+
+    var that = this;
+
+    this.service = function () {
+        return dec() ? that.member : null;
+    };
+}
+
+</script>
+</body>
+</html>

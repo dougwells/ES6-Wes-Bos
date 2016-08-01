@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ES6 - Constructor</title>
+</head>
+<body>
+<script>
+function testClosure(input){
+  var valueWhenRan = input;
+  return function(){
+    return 2*valueWhenRan
+  }
+}
+
+let calc1 = testClosure(900);
+let calc2 = testClosure(1000);
+
+console.log(calc1());
+console.log(calc2());
+
+
+</script>
+</body>
+</html>

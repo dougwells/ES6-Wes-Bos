@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ES6 - Pub/Priv</title>
+</head>
+<body>
+<script>
+
+function Person(n,race){
+
+	// ************************************************************************
+	// PRIVATE VARIABLES AND FUNCTIONS
+	// ONLY PRIVELEGED METHODS MAY VIEW/EDIT/INVOKE
+	// ***********************************************************************
+	var alive=true, age=1;
+	var maxAge=70+Math.round(Math.random()*15)+Math.round(Math.random()*15);
+	function makeOlder(){ return alive = (++age <= maxAge) }
+
+	var myName=n?n:"John Doe";
+	var weight=1;
+
+
+	// ************************************************************************
+	// PRIVILEGED METHODS
+	// MAY BE INVOKED PUBLICLY AND MAY ACCESS PRIVATE ITEMS
+	// MAY NOT BE CHANGED; MAY BE REPLACED WITH PUBLIC FLAVORS
+	// ************************************************************************
+	this.toString=this.getName=function(){ return myName }
+
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ES6 - Constructor</title>
+</head>
+<body>
+<script>
+var Dog = function(name,breed, age){
+  this.name = name;
+  this.breed = breed;
+  this.age = age;
+}
+Dog.prototype.bark = function(){
+  console.log(`Bark! I'm ${this.name}`);
+}
+var snickers = new Dog('snickers', 'lab', 7);
+
+</script>
+</body>
+</html>
