@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ES6 - Constructor</title>
+</head>
+<body>
+<script>
+
+// //ES5 Way ...
+//
+//   //Car constructor
+//   var Car = function(options){
+//     this.title = options.title;
+//   }
+//
+//   //Add prototype to Car
+//   Car.prototype.drive = function(){return "Vroom ..."};
+//
+//   //instance of Car
+//   var dougCar = new Car({title: "Mini"})
+//   console.log(dougCar.drive());
+//   console.dir(dougCar);
+//   console.dir(Car);
+//
+//   //New Constuctor that inherits from Car
+//   var Toyota = function(options){
+//     this.color = options.color
+//   };
+//
+//   //Put Car prototype on Toyota
+//   Toyota.prototype = Object.create(Car.prototype)
+//   Toyota.prototype.constructor = Toyota
+//   Toyota.prototype.honk = function(){return "beep ... beep"}
+//
+//
+//   console.dir(Toyota);
+//   var sierraCar = new Toyota({color: "White"});
+//   console.log(sierraCar.drive(), sierraCar.honk());
+//
+// //End ES5 Way
+
+//ES6 Way: Classes
+"use strict"
+class Car {
+// contstructor runs automatically w/each instance
+// constructor for all properties (but not methods)
+  constructor(options){
+    this.title = options.title
+  }
+  drive (){return "Vroooooom"}
+}
+
+class Toyota extends Car {
+  constructor(options){
+    super(options);  //Car.constructor
+    this.color = options.color;
+  }
+  honk(){return "beep ... beep"}
+}
+
+const sierraCar = new Toyota({color: "Red", title: "BMW"});
+console.log(sierraCar.honk(), sierraCar.drive(), sierraCar.color, sierraCar.title);
+console.dir(sierraCar);
+console.dir(Toyota);
+console.dir(Car);
+
+
+
+//End ES6 Way
+
+
+</script>
+</body>
+</html>
